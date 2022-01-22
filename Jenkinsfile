@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    PROJECT = "subbareddy-336408"
+    PROJECT = "useful-cathode-334010"
     APP_NAME = "kubernetes"
     FE_SVC_NAME = "${APP_NAME}-frontend"
     CLUSTER = "goutham"
