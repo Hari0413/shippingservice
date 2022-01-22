@@ -4,7 +4,7 @@ pipeline {
     PROJECT = "useful-cathode-334010"
     APP_NAME = "kubernetes"
     FE_SVC_NAME = "${APP_NAME}-frontend"
-    CLUSTER = "goutham"
+    CLUSTER = "kubernet"
     CLUSTER_ZONE = "us-central1-c"
     IMAGE_TAG = "gcr.io/${PROJECT}/${APP_NAME}:${env.BRANCH_NAME}.${env.BUILD_NUMBER}"
     JENKINS_CRED = "${PROJECT}"
@@ -12,7 +12,7 @@ pipeline {
 
   agent {
     kubernetes {
-      label 'sample-app'
+      label 'shipping'
       defaultContainer 'jnlp'
       yaml """
 apiVersion: v1
@@ -47,9 +47,7 @@ spec:
       steps {
         container('golang') {
           sh """
-            ln -s `pwd` /go/src/sample-app
-            cd /go/src/sample-app
-            go test
+            ln -s `pwd`
           """
         }
       }
@@ -64,6 +62,7 @@ spec:
     stage('Deploy Dev') {
       steps {
         container('kubectl') {
+          
          
           
         }
